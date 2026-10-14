@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Graph Guide</title>
+<meta name="theme-color" content="#ffffff">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <h1>Graph Guide</h1>
+  <div class="top-actions" id="topActions"></div>
+</header>
+<main class="layout">
+  <section class="graph-card" aria-label="Graph">
+    <canvas id="graph"></canvas>
+    <button class="reset" id="resetView" type="button" title="Reset view">Reset view</button>
+  </section>
+  <section class="side">
+    <div class="card input-card">
+      <label for="expr">Type an expression</label>
+      <div class="row">
+        <span class="yeq">y =</span>
+        <input id="expr" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" value="x^2 - 4" placeholder="e.g. 2x + 3">
+        <button id="plot" class="primary" type="button">Plot</button>
+      </div>
+      <p class="error" id="error" role="alert" hidden></p>
+      <button class="link" id="kpToggle" type="button" aria-expanded="false" aria-controls="keypad">Show keypad</button>
+      <div class="keypad" id="keypad" hidden></div>
+    </div>
+    <div class="card explain-card" id="explain">
+      <h2>What you're seeing</h2>
+      <ul id="explainText"><li>Type an expression to see what it looks like.</li></ul>
+      <p class="deriv" id="deriv" hidden></p>
+    </div>
+    <div class="card history-card">
+      <div class="hist-head"><h2>History</h2><button class="link" id="histClear" type="button" hidden>Clear all</button></div>
+      <ul class="hist" id="historyList"></ul>
+      <p class="hist-empty" id="histEmpty">Your plots are saved here on this device.</p>
+    </div>
+  </section>
+</main>
+<script src="libs/math.min.js"></script>
+<script src="parser.js"></script>
+<script src="analyze.js"></script>
+<script src="guide.js"></script>
+<script src="history.js"></script>
+<script src="pwa.js"></script>
+<script src="graph.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
